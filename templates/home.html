@@ -74,23 +74,23 @@
     <section class="section container" id="projects">
         <div class="container">
             <h2 class="title">My recent projects</h2>
+            {% for project in projects %}
             <article class="media columns">
                 <div class="column">
-                    <h3 class="subtitle">Projekt 1</h3>
-                    <div class="article-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam animi
-                        consequuntur possimus
-                        autem nesciunt asperiores quidem illum, velit ea repellat rem beatae hic fuga, iste voluptatum a
-                        voluptatem esse unde?
+                    <h3 class="subtitle">{{ project.name }}</h3>
+                    <div class="article-text">{{ project.short_description }}
                     </div>
                     <br>
                     <br>
                     <a href=""><button class="button is-dark">View more</button></a>
                 </div>
                 <div class="column is-two-fifths">
-                    <img src="https://picsum.photos/400/300" class="image">
+                    <img src="{{ project.thumbnail_image.url}}" class="image">
                 </div>
             </article>
-            <article class="media columns">
+            {% endfor %}
+
+            <!-- <article class="media columns">
                 <div class="column">
                     <h3 class="subtitle">Projekt 1</h3>
                     <div class="article-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam animi
@@ -125,9 +125,7 @@
             <article>
                 <h3 class="subtitle">All my projects are here</h3>
                 <button class="button is-dark ">View my other projects</button>
-            </article>
-
-
+            </article> -->
 
         </div>
     </section>

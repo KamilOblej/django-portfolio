@@ -26,14 +26,13 @@ class Skill(models.Model):
 
 
 class Project(models.Model):
-    pass
-    # name = models.CharField(max_length=100)
-    # short_description = models.CharField(max_length=200)
-    # description = models.TextField(null=False)
-    # thumbnail_image = models.ImageField()
+    name = models.CharField(max_length=100)
+    short_description = models.CharField(max_length=200)
+    description = models.TextField(null=False)
+    thumbnail_image = models.ImageField()
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return self.name
 
 
 class ProjectImage(models.Model):
