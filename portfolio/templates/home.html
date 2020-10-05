@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
+        integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous">
+    {% include 'includes/stylesheets.html' %}
+</head>
+
+<body>
+    <nav class="navbar center is-dark is-fixed-top">
+        <div class="container">
+            <a href="#about" class="">
+                <button class="navbar-item button is-dark has-text-centered">About me</button>
+            </a>
+            <a href="#skills" class="">
+                <button class="navbar-item button is-dark">Skills </button>
+            </a>
+            <a href="#projects" class="">
+                <button class="navbar-item button is-dark">My projects </button>
+            </a>
+            <a href="#contact" class="">
+                <button class="navbar-item button is-dark">Contact </button>
+            </a>
+        </div>
+    </nav>
+
+    <section class="section container" id="about">
+
+        <div>
+            <h2 class="title">About me</h2>
+        </div>
+        </div>
+
+        <div class="columns is-multiline space">
+            {% for fact in about %}
+            <div class="column is-one-fifth bordered has-text-centered">
+                <h3 class="subtitle has-text-centered">{{fact.name}}</h3>
+                <figure class="image is-128x128 column centered">
+                    <img src="{{fact.image.url}}" class="is-rounded" alt="" srcset="">
+                </figure>
+                <div class="column description">
+                    {{fact.description}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="section container" id="skills">
+        <div>
+            <h2 class="title">My skills</h2>
+        </div>
+
+        <div class="columns is-multiline">
+            {% for skill in skills %}
+            <div class="column is-one-fifth bordered has-text-centered">
+                <h3 class="subtitle has-text-centered">{{skill.name}}</h3>
+                <figure class="image is-128x128 column centered">
+                    <img src="{{skill.image.url}}" class="is-rounded" alt="" srcset="">
+                </figure>
+                <div class="column description">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+    <section class="section container" id="projects">
+        <div class="container">
+            <h2 class="title">My recent projects</h2>
+            <article class="media columns">
+                <div class="column">
+                    <h3 class="subtitle">Projekt 1</h3>
+                    <div class="article-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam animi
+                        consequuntur possimus
+                        autem nesciunt asperiores quidem illum, velit ea repellat rem beatae hic fuga, iste voluptatum a
+                        voluptatem esse unde?
+                    </div>
+                    <br>
+                    <br>
+                    <a href=""><button class="button is-dark">View more</button></a>
+                </div>
+                <div class="column is-two-fifths">
+                    <img src="https://picsum.photos/400/300" class="image">
+                </div>
+            </article>
+            <article class="media columns">
+                <div class="column">
+                    <h3 class="subtitle">Projekt 1</h3>
+                    <div class="article-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam animi
+                        consequuntur possimus
+                        autem nesciunt asperiores quidem illum, velit ea repellat rem beatae hic fuga, iste voluptatum a
+                        voluptatem esse unde?
+                    </div>
+                    <br>
+                    <br>
+                    <a href=""><button class="button is-dark">View more</button></a>
+                </div>
+                <div class="column is-two-fifths">
+                    <img src="https://picsum.photos/400/300" class="image">
+                </div>
+            </article>
+            <article class="media columns">
+                <div class="column">
+                    <h3 class="subtitle">Projekt 1</h3>
+                    <div class="article-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam animi
+                        consequuntur possimus
+                        autem nesciunt asperiores quidem illum, velit ea repellat rem beatae hic fuga, iste voluptatum a
+                        voluptatem esse unde?
+                    </div>
+                    <br>
+                    <br>
+                    <a href=""><button class="button is-dark">View more</button></a>
+                </div>
+                <div class="column is-two-fifths">
+                    <img src="https://picsum.photos/400/300" class="image">
+                </div>
+            </article>
+            <article>
+                <h3 class="subtitle">All my projects are here</h3>
+                <button class="button is-dark ">View my other projects</button>
+            </article>
+
+
+
+        </div>
+    </section>
+
+    <footer class="footer has-background-black-ter" id="contact">
+        <div class="container">
+            <div class="social-links">
+                <i class="far fa-envelope"></i><br>
+                <i class="fab fa-facebook-messenger"></i><br>
+                <i class="fas fa-phone"></i><br><br>
+            </div>
+            <div class="copyrights">
+                Created by Kamil Oblej
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
