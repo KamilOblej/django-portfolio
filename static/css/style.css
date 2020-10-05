@@ -1,0 +1,38 @@
+.bordered{
+    border: 1px solid rgba(214, 214, 214, 0.26);
+}
+
+.column{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.column .centered{
+    margin: 0 auto;
+}
+
+.columns {
+    justify-content: space-around;
+}
+
+.footer{
+    color:white;
+    padding-bottom: 20px;
+}
+
+.copyrights{
+    text-align: center;
+}
+
+
+.container{
+    overflow: hidden;
+}
+
+.section{
+    margin-top: 20px;
+}
+
+.navbar-item{
+    padding:0 20px;
+}
