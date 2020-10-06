@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar center is-dark is-fixed-top">
+    <div class="container">
+        <a href="#about" class="">
+            <button class="navbar-item button is-dark has-text-centered">About me</button>
+        </a>
+        <a href="#skills" class="">
+            <button class="navbar-item button is-dark">Skills </button>
+        </a>
+        <a href="#projects" class="">
+            <button class="navbar-item button is-dark">My projects </button>
+        </a>
+        <a href="#contact" class="">
+            <button class="navbar-item button is-dark">Contact </button>
+        </a>
+    </div>
+</nav>
+
+<section class="section container">
+    {% for p in project %}
+    <h2 class="title">{{p.name}}</h2>
+    <article class="columns">
+        <div class="column description">
+            {{p.description}}
+        </div>
+    </article>
+    {% endfor %}
+</section>
+
+
+
+{% for p in project %}
+
+{% endfor %}
+
+{% endblock content %}

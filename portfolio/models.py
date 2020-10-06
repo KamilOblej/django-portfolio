@@ -26,18 +26,21 @@ class Skill(models.Model):
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=100)
-    short_description = models.CharField(max_length=200)
-    description = models.TextField(null=False)
-    thumbnail_image = models.ImageField()
+    name = models.CharField(max_length=100, default='null')
+    short_description = models.CharField(max_length=200, default='null')
+    description = models.TextField(default='null')
+    thumbnail_image = models.ImageField(null=False)
 
     def __str__(self):
         return self.name
 
 
 class ProjectImage(models.Model):
-    pass
-    # project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    # name = models.CharField(max_length=100, null=False)
-    # pub_date = models.DateField()
-    # image = models.FileField()
+    # pass
+    project = models.ForeignKey(
+        Project, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, null=False)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.name
