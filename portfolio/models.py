@@ -44,3 +44,19 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Icon(models.Model):
+    name = models.CharField(max_length=50, null=False)
+    font_avesome = models.CharField(max_length=50, null=False)
+
+    def __str__(self):
+        return self.name
+
+
+class SocialIcon(models.Model):
+    icon = models.ForeignKey(Icon, on_delete=models.CASCADE)
+    link = models.TextField()
+
+    def __str__(self):
+        return self.icon.name

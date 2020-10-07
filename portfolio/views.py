@@ -1,7 +1,13 @@
 from django.shortcuts import render, redirect
 # from django.views.generic import TemplateView
-from . models import About, Skill, Project, ProjectImage
+from . models import About, Skill, Project, ProjectImage, Icon
 from django.http import JsonResponse
+
+icons = Icon.objects.all()
+
+i = {
+    'icons': icons
+}
 
 
 def index(request):
@@ -13,6 +19,10 @@ def index(request):
         'skills': skills,
         'projects': projects,
     }
+
+    context.update(i)
+
+    print(context)
 
     return render(request, 'home.html', context)
 

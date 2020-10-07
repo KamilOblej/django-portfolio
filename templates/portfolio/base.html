@@ -18,9 +18,13 @@
 <footer class="footer has-background-black-ter" id="contact">
     <div class="container">
         <div class="social-links">
-            <i class="far fa-envelope"></i><br>
+            {% for icon in icons %}
+            <i class="{{ icon.font_avesome }}"></i><br>
+            {% endfor %}
+            <!-- <i class="far fa-envelope"></i><br>
             <i class="fab fa-facebook-messenger"></i><br>
-            <i class="fas fa-phone"></i><br><br>
+            <i class="fas fa-phone"></i><br><br> -->
+            <a href="tel:+1123-456-7890">123-456-7890</a>
         </div>
         <div class="copyrights">
             Created by Kamil Oblej
