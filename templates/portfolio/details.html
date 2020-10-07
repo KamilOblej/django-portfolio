@@ -3,36 +3,49 @@
 {% block content %}
 <nav class="navbar center is-dark is-fixed-top">
     <div class="container">
-        <a href="#about" class="">
-            <button class="navbar-item button is-dark has-text-centered">About me</button>
-        </a>
-        <a href="#skills" class="">
-            <button class="navbar-item button is-dark">Skills </button>
-        </a>
-        <a href="#projects" class="">
-            <button class="navbar-item button is-dark">My projects </button>
+        <a href="{% url 'index' %}" class="">
+            <button class="navbar-item button is-dark has-text-centered">Home</button>
         </a>
         <a href="#contact" class="">
             <button class="navbar-item button is-dark">Contact </button>
         </a>
+        <a href="{% url 'projects' %}" class="">
+            <button class="navbar-item button is-dark">All projects </button>
+        </a>
     </div>
 </nav>
 
-<section class="section container">
+<section class="section container full-height">
     {% for p in project %}
-    <h2 class="title">{{p.name}}</h2>
-    <article class="columns">
-        <div class="column description">
-            {{p.description}}
+    <article class="container">
+        <h2 class="title">{{p.name}}</h2>
+        <div class="columns">
+            <div class="column description">
+                {{p.description}}
+            </div>
+            <div class="column is-half">
+                <figure class="image">
+                    <img src="{{ p.thumbnail_image.url }}" alt="" srcset="">
+                </figure>
+            </div>
+
         </div>
+        <div class="columns is-multiline">
+            {% for image in images %}
+            <h3 class="subtitle column is-full">
+                {{ image.name }}
+            </h3>
+            <div class="column  media is-three-quarters">
+
+                <figure class="image">
+                    <img src="{{ image.image.url }}" alt="" srcset="">
+                </figure>
+            </div>
+            {% endfor %}
+        </div>
+
     </article>
     {% endfor %}
 </section>
-
-
-
-{% for p in project %}
-
-{% endfor %}
 
 {% endblock content %}

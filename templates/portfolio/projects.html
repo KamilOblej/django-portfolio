@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar center is-dark is-fixed-top">
+    <div class="container">
+        <a href="{% url 'index' %}" class="">
+            <button class="navbar-item button is-dark has-text-centered">Home</button>
+        </a>
+        <a href="#contact" class="">
+            <button class="navbar-item button is-dark">Contact </button>
+        </a>
+    </div>
+</nav>
+<section class="section container full-height">
+    <h1 class="title">My all projects</h1>
+
+    <article class="columns is-multiline">
+        {% for project in projects %}
+
+        <div class="column box is-two-fifths">
+            <a href="{% url 'details' project.pk %}">
+                <h2 class="subtitle">{{project.name}}</h2>
+                <figure class="image">
+                    <img src="{{ project.thumbnail_image.url }}" alt="" srcset="">
+                </figure>
+            </a>
+        </div>
+
+        {% endfor %}
+    </article>
+
+</section>
+
+
+{% endblock content %}

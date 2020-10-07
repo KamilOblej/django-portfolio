@@ -4,43 +4,36 @@ from . models import About, Skill, Project, ProjectImage
 from django.http import JsonResponse
 
 
-# class HomeTemplateView(TemplateView):
-#     template_name = "home.html"
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-
-#         context['about'] = About.objects.all()
-#         context['skills'] = Skill.objects.all()
-#         context['projects'] = Project.objects.all()
-
-#         return context
-
-# def details(self, request):
-#     return render('./details.html')
-
 def index(request):
     about = About.objects.all()
     skills = Skill.objects.all()
-    projects = Project.objects.all()
-
+    projects = reversed(Project.objects.all()[Project.objects.count() - 3:])
     context = {
         'about': about,
         'skills': skills,
         'projects': projects,
     }
 
-    print(context)
-
     return render(request, 'home.html', context)
 
 
 def details(request, pk):
     project = Project.objects.filter(pk=pk)
+    images = ProjectImage.objects.filter(project=pk)
     # project_json =
     context = {
         'project': project,
+        'images': images,
     }
 
     print(context)
     return render(request, 'details.html', context)
+
+
+def all_projects(request):
+    projects = reversed(Project.objects.all())
+
+    context = {
+        'projects': projects
+    }
+    return render(request, 'projects.html', context)
