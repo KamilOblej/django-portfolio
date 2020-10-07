@@ -36,6 +36,8 @@ def details(request, pk):
         'images': images,
     }
 
+    context.update(i)
+
     print(context)
     return render(request, 'details.html', context)
 
@@ -46,4 +48,5 @@ def all_projects(request):
     context = {
         'projects': projects
     }
+    context.update(i)
     return render(request, 'projects.html', context)
