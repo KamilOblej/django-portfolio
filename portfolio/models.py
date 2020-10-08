@@ -60,3 +60,8 @@ class SocialIcon(models.Model):
 
     def __str__(self):
         return self.icon.name
+
+
+# class ContactIcon(models.Model):
+#     icon = models.ForeignKey(Icon, on_delete=models.CASCADE)
+#     value = models.CharField(max_length=100, null=False)

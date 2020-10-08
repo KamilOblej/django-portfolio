@@ -20,8 +20,8 @@
         <div class="container columns contact-info is-mobile">
             <div class="social-links column is-one-quater-mobile">
                 <h4 class="subtitle has-text-white">Socials</h4>
-                {% for icon in icons %}
-                <i class="{{ icon.font_avesome }}"></i>
+                {% for link in social_links %}
+                <a href="{{link.link}}" class="has-text-white"> <i class="{{link.icon.font_avesome}}"></i></a>
                 {% endfor %}
             </div>
             <div class="contact-links column is-two-fifths">
