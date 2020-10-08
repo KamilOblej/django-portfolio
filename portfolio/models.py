@@ -43,7 +43,7 @@ class ProjectImage(models.Model):
     image = models.ImageField()
 
     def __str__(self):
-        return self.name
+        return str(self.project.name) + str(self.name)
 
 
 class Icon(models.Model):
