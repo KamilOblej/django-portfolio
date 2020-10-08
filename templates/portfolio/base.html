@@ -26,8 +26,15 @@
             </div>
             <div class="contact-links column is-two-fifths">
                 <h4 class="subtitle has-text-white">Contact me</h4>
-                {% for icon in icons %}
-                <i class="{{ icon.font_avesome }}"></i><br>
+                {% for phone in phones %}
+                <a href="tel:{{phone.number}}" class="has-text-white">
+                    <i class="{{phone.icon.font_avesome}}"></i>&nbsp;{{ phone.number}}<br>
+                </a>
+                {% endfor %}
+                {% for email in emails %}
+                <a href="mailto:{{email.email}}" class="has-text-white">
+                    <i class="{{email.icon.font_avesome}}"></i>&nbsp;{{ email.email }}
+                </a>
                 {% endfor %}
             </div>
 

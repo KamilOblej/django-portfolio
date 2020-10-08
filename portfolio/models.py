@@ -62,6 +62,24 @@ class SocialIcon(models.Model):
         return self.icon.name
 
 
+class Phone(models.Model):
+    icon = icon = models.ForeignKey(Icon, on_delete=models.CASCADE)
+    number = models.CharField(max_length=50, null=False)
+
+    def __str__(self):
+        return self.number
+
+
+class Email(models.Model):
+    icon = icon = models.ForeignKey(Icon, on_delete=models.CASCADE)
+    email = models.CharField(max_length=50, null=False)
+
+    def __str__(self):
+        return self.email
+
 # class ContactIcon(models.Model):
 #     icon = models.ForeignKey(Icon, on_delete=models.CASCADE)
 #     value = models.CharField(max_length=100, null=False)
+
+#     def __str__(self):
+#         return self.icon.name

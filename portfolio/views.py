@@ -1,15 +1,20 @@
 from django.shortcuts import render, redirect
 # from django.views.generic import TemplateView
-from . models import About, Skill, Project, ProjectImage, Icon, SocialIcon
+from . models import About, Skill, Project, ProjectImage, Icon, SocialIcon,  Phone, Email
 from django.http import JsonResponse
 
 
 social_links = SocialIcon.objects.all()
 icons = Icon.objects.all()
+emails = Email.objects.all()
+phones = Phone.objects.all()
 
 i = {
     'icons': icons,
-    'social_links': social_links
+    'social_links': social_links,
+    'phones': phones,
+    'emails': emails,
+
 }
 
 
