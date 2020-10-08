@@ -17,20 +17,54 @@
 
 <footer class="footer has-background-black-ter" id="contact">
     <div class="container">
-        <div class="social-links">
-            {% for icon in icons %}
-            <i class="{{ icon.font_avesome }}"></i><br>
-            {% endfor %}
-            <!-- <i class="far fa-envelope"></i><br>
-            <i class="fab fa-facebook-messenger"></i><br>
-            <i class="fas fa-phone"></i><br><br> -->
-            <a href="tel:+1123-456-7890">123-456-7890</a>
+        <div class="container columns contact-info is-mobile">
+            <div class="social-links column is-one-quater-mobile">
+                <h4 class="subtitle has-text-white">Socials</h4>
+                {% for icon in icons %}
+                <i class="{{ icon.font_avesome }}"></i>
+                {% endfor %}
+            </div>
+            <div class="contact-links column is-two-fifths">
+                <h4 class="subtitle has-text-white">Contact me</h4>
+                {% for icon in icons %}
+                <i class="{{ icon.font_avesome }}"></i><br>
+                {% endfor %}
+            </div>
+
         </div>
         <div class="copyrights">
             Created by Kamil Oblej
         </div>
     </div>
+
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+        }
+
+    });
+</script>
 </body>
 
 </html>

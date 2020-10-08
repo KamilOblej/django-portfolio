@@ -3,8 +3,7 @@
 }
 
 .column{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin:20px;
 }
 
 .column .centered{
@@ -31,6 +30,7 @@
 
 .section{
     margin-top: 40px;
+    padding-top: 60px;
 }
 
 .navbar-item{

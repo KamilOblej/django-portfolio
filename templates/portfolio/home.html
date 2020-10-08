@@ -3,20 +3,45 @@
 {% block content %}
 
 <body>
-    <nav class="navbar center is-dark is-fixed-top">
-        <div class="container">
-            <a href="#about" class="">
-                <button class="navbar-item button is-dark has-text-centered">About me</button>
+    <nav class="navbar  is-fixed-top is-dark" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </a>
-            <a href="#skills" class="">
-                <button class="navbar-item button is-dark">Skills </button>
-            </a>
-            <a href="#projects" class="">
-                <button class="navbar-item button is-dark">My projects </button>
-            </a>
-            <a href="#contact" class="">
-                <button class="navbar-item button is-dark">Contact </button>
-            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#about">
+                    About me
+                </a>
+
+                <a class="navbar-item" href="#skills">
+                    Skills
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link has-text-white-desktop" href="#projects">
+                        My projects
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="{% url 'projects' %}">
+                            All projects
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <a class="navbar-item" href="#contact">
+                    Contact
+                </a>
+
+            </div>
         </div>
     </nav>
 
@@ -27,9 +52,9 @@
         </div>
         </div>
 
-        <div class="columns is-multiline space">
+        <div class="columns is-multiline is-mobile">
             {% for fact in about %}
-            <div class="column is-one-fifth bordered has-text-centered">
+            <div class="column is-one-fifth-desktop bordered  has-text-centered is-full-mobile is-two-fifths-tablet">
                 <h3 class="subtitle has-text-centered">{{fact.name}}</h3>
                 <figure class="image is-128x128 column centered">
                     <img src="{{fact.image.url}}" class="is-rounded" alt="" srcset="">
@@ -47,9 +72,9 @@
             <h2 class="title">My skills</h2>
         </div>
 
-        <div class="columns is-multiline">
+        <div class="columns is-multiline is-mobile">
             {% for skill in skills %}
-            <div class="column is-one-fifth bordered has-text-centered">
+            <div class="column is-one-fifth-desktop is-full-mobile bordered has-text-centered is-two-fifths-tablet">
                 <h3 class="subtitle has-text-centered">{{skill.name}}</h3>
                 <figure class="image is-128x128 column centered">
                     <img src="{{skill.image.url}}" class="is-rounded" alt="" srcset="">
@@ -59,6 +84,7 @@
                 </div>
             </div>
             {% endfor %}
+
         </div>
 
     </section>
@@ -66,8 +92,8 @@
         <div class="container">
             <h2 class="title">My recent projects</h2>
             {% for project in projects %}
-            <article class="media columns">
-                <div class="column">
+            <article class="media columns is-mobile is-multiline">
+                <div class="column is-full-mobile">
                     <h3 class="subtitle">{{ project.name }}</h3>
                     <div class="article-text">{{ project.short_description }}
                     </div>
@@ -75,7 +101,7 @@
                     <br>
                     <a href="{% url 'details' project.pk %}"><button class="button is-dark">View more</button></a>
                 </div>
-                <div class="column is-two-fifths">
+                <div class="column is-full-mobile">
                     <img src="{{ project.thumbnail_image.url}}" class="image">
                 </div>
             </article>
